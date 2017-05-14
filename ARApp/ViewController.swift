@@ -19,7 +19,7 @@ class ViewController: ARCameraViewController {
     override func setupContent() {
         
         // Initialise image trackable
-        let imageTrackable = ARImageTrackable(image: UIImage(named: "spaceMarker.jpg"), name: "space")
+        let imageTrackable = ARImageTrackable(image: UIImage(named: "qrcode.jpg"), name: "qrcode")
         
         // Get instance of image tracker manager
         let trackerManager = ARImageTrackerManager.getInstance()
@@ -29,7 +29,7 @@ class ViewController: ARCameraViewController {
         trackerManager?.addTrackable(imageTrackable)
         
         // Initialise image node
-        let imageNode = ARImageNode(bundledFile: "eyebrow.png")
+        let imageNode = ARImageNode(bundledFile: "victor.jpg")
         
         // Add image node to image trackable
         imageTrackable?.world.addChild(imageNode)
