@@ -14,9 +14,13 @@
 		A8120A0E1EC8934A007EB68A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8120A0C1EC8934A007EB68A /* LaunchScreen.storyboard */; };
 		A8120A161EC8940D007EB68A /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A151EC8940D007EB68A /* KudanAR.framework */; };
 		A8120A191EC89458007EB68A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A181EC89458007EB68A /* libc++.tbd */; };
+		A8120A1C1EC89F60007EB68A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */; };
+		C6154CB895F20A847A9159CC /* Pods_ARApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F9223326CA7F6CDC1DF8B11 /* Pods-ARApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.release.xcconfig"; sourceTree = "<group>"; };
+		867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8120A001EC8934A007EB68A /* ARApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8120A031EC8934A007EB68A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8120A051EC8934A007EB68A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,6 +31,8 @@
 		A8120A151EC8940D007EB68A /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KudanAR.framework; sourceTree = "<group>"; };
 		A8120A181EC89458007EB68A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kudan-Swift-Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EBAECD875BC6D86818E81C57 /* Pods-ARApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,7 @@
 			files = (
 				A8120A191EC89458007EB68A /* libc++.tbd in Frameworks */,
 				A8120A161EC8940D007EB68A /* KudanAR.framework in Frameworks */,
+				C6154CB895F20A847A9159CC /* Pods_ARApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +55,7 @@
 				A8120A021EC8934A007EB68A /* ARApp */,
 				A8120A011EC8934A007EB68A /* Products */,
 				A8120A171EC89457007EB68A /* Frameworks */,
+				AEA7F58FA6800CCCF7D66476 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,14 +70,8 @@
 		A8120A021EC8934A007EB68A /* ARApp */ = {
 			isa = PBXGroup;
 			children = (
-				A8120A031EC8934A007EB68A /* AppDelegate.swift */,
+				A8120A1D1EC89FF7007EB68A /* Supporting files */,
 				A8120A051EC8934A007EB68A /* ViewController.swift */,
-				A8120A071EC8934A007EB68A /* Main.storyboard */,
-				A8120A0A1EC8934A007EB68A /* Assets.xcassets */,
-				A8120A0C1EC8934A007EB68A /* LaunchScreen.storyboard */,
-				A8120A0F1EC8934A007EB68A /* Info.plist */,
-				A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */,
-				A8120A151EC8940D007EB68A /* KudanAR.framework */,
 			);
 			path = ARApp;
 			sourceTree = "<group>";
@@ -78,8 +80,33 @@
 			isa = PBXGroup;
 			children = (
 				A8120A181EC89458007EB68A /* libc++.tbd */,
+				867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8120A1D1EC89FF7007EB68A /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				A8120A031EC8934A007EB68A /* AppDelegate.swift */,
+				A8120A151EC8940D007EB68A /* KudanAR.framework */,
+				A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */,
+				A8120A0F1EC8934A007EB68A /* Info.plist */,
+				A8120A071EC8934A007EB68A /* Main.storyboard */,
+				A8120A0C1EC8934A007EB68A /* LaunchScreen.storyboard */,
+				A8120A0A1EC8934A007EB68A /* Assets.xcassets */,
+				A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		AEA7F58FA6800CCCF7D66476 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBAECD875BC6D86818E81C57 /* Pods-ARApp.debug.xcconfig */,
+				5F9223326CA7F6CDC1DF8B11 /* Pods-ARApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,9 +116,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8120A121EC8934A007EB68A /* Build configuration list for PBXNativeTarget "ARApp" */;
 			buildPhases = (
+				A9645BA88A740AD75EA8E66B /* [CP] Check Pods Manifest.lock */,
 				A81209FC1EC8934A007EB68A /* Sources */,
 				A81209FD1EC8934A007EB68A /* Frameworks */,
 				A81209FE1EC8934A007EB68A /* Resources */,
+				8A8204966706B91F2AB0D740 /* [CP] Embed Pods Frameworks */,
+				FDAB43180A221623AB55A517 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -143,12 +173,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8120A0E1EC8934A007EB68A /* LaunchScreen.storyboard in Resources */,
+				A8120A1C1EC89F60007EB68A /* GoogleService-Info.plist in Resources */,
 				A8120A0B1EC8934A007EB68A /* Assets.xcassets in Resources */,
 				A8120A091EC8934A007EB68A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8A8204966706B91F2AB0D740 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARApp/Pods-ARApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9645BA88A740AD75EA8E66B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FDAB43180A221623AB55A517 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARApp/Pods-ARApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A81209FC1EC8934A007EB68A /* Sources */ = {
@@ -277,6 +356,7 @@
 		};
 		A8120A131EC8934A007EB68A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBAECD875BC6D86818E81C57 /* Pods-ARApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N2TXAFJTQC;
@@ -294,6 +374,7 @@
 		};
 		A8120A141EC8934A007EB68A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F9223326CA7F6CDC1DF8B11 /* Pods-ARApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N2TXAFJTQC;
@@ -328,6 +409,7 @@
 				A8120A141EC8934A007EB68A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
