@@ -8,6 +8,7 @@
 
 import UIKit
 import KudanAR
+import QRCode
 
 class ViewController: ARCameraViewController {
 
@@ -17,8 +18,11 @@ class ViewController: ARCameraViewController {
     
     override func setupContent() {
         
+        let string = "Victor Krusenstrahle" // UID GOES HERE
+        let image = generateQRCode(string: string)
+        
         // Initialise image trackable
-        let imageTrackable = ARImageTrackable(image: UIImage(named: "qrcode.jpg"), name: "qrcode")
+        let imageTrackable = ARImageTrackable(image: image, name: "")
         
         // Get instance of image tracker manager
         let trackerManager = ARImageTrackerManager.getInstance()
@@ -34,7 +38,18 @@ class ViewController: ARCameraViewController {
         imageTrackable?.world.addChild(imageNode)
 
     }
-
+    
+    func generateQRCode(string: String) -> UIImage {
+        var qrCode = QRCode(string)
+            qrCode?.size = CGSize(width: 600, height: 600)
+        
+        return (qrCode?.image)!
+    }
+    
+    @IBAction func dismissAction(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

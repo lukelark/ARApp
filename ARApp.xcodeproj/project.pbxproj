@@ -15,6 +15,10 @@
 		A8120A161EC8940D007EB68A /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A151EC8940D007EB68A /* KudanAR.framework */; };
 		A8120A191EC89458007EB68A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A181EC89458007EB68A /* libc++.tbd */; };
 		A8120A1C1EC89F60007EB68A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */; };
+		A8120A1F1EC8B28A007EB68A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A1E1EC8B28A007EB68A /* MainViewController.swift */; };
+		A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A201EC8B503007EB68A /* BaseViewController.swift */; };
+		A8120A231EC8B5A8007EB68A /* AddNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */; };
+		A8AB0D2C1EC8C853008A97C2 /* ShowUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */; };
 		C6154CB895F20A847A9159CC /* Pods_ARApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,10 +32,14 @@
 		A8120A0A1EC8934A007EB68A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8120A0D1EC8934A007EB68A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8120A0F1EC8934A007EB68A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8120A151EC8940D007EB68A /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KudanAR.framework; sourceTree = "<group>"; };
+		A8120A151EC8940D007EB68A /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KudanAR.framework; path = ARApp/KudanAR.framework; sourceTree = "<group>"; };
 		A8120A181EC89458007EB68A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kudan-Swift-Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8120A1E1EC8B28A007EB68A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A8120A201EC8B503007EB68A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewUserViewController.swift; sourceTree = "<group>"; };
+		A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowUsersViewController.swift; sourceTree = "<group>"; };
 		EBAECD875BC6D86818E81C57 /* Pods-ARApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +80,9 @@
 			children = (
 				A8120A1D1EC89FF7007EB68A /* Supporting files */,
 				A8120A051EC8934A007EB68A /* ViewController.swift */,
+				A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */,
+				A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */,
+				A8120A1E1EC8B28A007EB68A /* MainViewController.swift */,
 			);
 			path = ARApp;
 			sourceTree = "<group>";
@@ -81,6 +92,7 @@
 			children = (
 				A8120A181EC89458007EB68A /* libc++.tbd */,
 				867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */,
+				A8120A151EC8940D007EB68A /* KudanAR.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -89,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				A8120A031EC8934A007EB68A /* AppDelegate.swift */,
-				A8120A151EC8940D007EB68A /* KudanAR.framework */,
+				A8120A201EC8B503007EB68A /* BaseViewController.swift */,
 				A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */,
 				A8120A0F1EC8934A007EB68A /* Info.plist */,
 				A8120A071EC8934A007EB68A /* Main.storyboard */,
@@ -234,7 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8120A231EC8B5A8007EB68A /* AddNewUserViewController.swift in Sources */,
+				A8120A1F1EC8B28A007EB68A /* MainViewController.swift in Sources */,
+				A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */,
 				A8120A061EC8934A007EB68A /* ViewController.swift in Sources */,
+				A8AB0D2C1EC8C853008A97C2 /* ShowUsersViewController.swift in Sources */,
 				A8120A041EC8934A007EB68A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
