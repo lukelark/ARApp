@@ -12,6 +12,8 @@
 		A8120A091EC8934A007EB68A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8120A071EC8934A007EB68A /* Main.storyboard */; };
 		A8120A0B1EC8934A007EB68A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8120A0A1EC8934A007EB68A /* Assets.xcassets */; };
 		A8120A0E1EC8934A007EB68A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8120A0C1EC8934A007EB68A /* LaunchScreen.storyboard */; };
+		A8120A161EC8940D007EB68A /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A151EC8940D007EB68A /* KudanAR.framework */; };
+		A8120A191EC89458007EB68A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A181EC89458007EB68A /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		A8120A0A1EC8934A007EB68A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8120A0D1EC8934A007EB68A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8120A0F1EC8934A007EB68A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8120A151EC8940D007EB68A /* KudanAR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KudanAR.framework; sourceTree = "<group>"; };
+		A8120A181EC89458007EB68A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kudan-Swift-Example-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8120A191EC89458007EB68A /* libc++.tbd in Frameworks */,
+				A8120A161EC8940D007EB68A /* KudanAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,7 @@
 			children = (
 				A8120A021EC8934A007EB68A /* ARApp */,
 				A8120A011EC8934A007EB68A /* Products */,
+				A8120A171EC89457007EB68A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +68,18 @@
 				A8120A0A1EC8934A007EB68A /* Assets.xcassets */,
 				A8120A0C1EC8934A007EB68A /* LaunchScreen.storyboard */,
 				A8120A0F1EC8934A007EB68A /* Info.plist */,
+				A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */,
+				A8120A151EC8940D007EB68A /* KudanAR.framework */,
 			);
 			path = ARApp;
+			sourceTree = "<group>";
+		};
+		A8120A171EC89457007EB68A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8120A181EC89458007EB68A /* libc++.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,7 +114,7 @@
 				TargetAttributes = {
 					A81209FF1EC8934A007EB68A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = EPU3EJA4R8;
+						DevelopmentTeam = N2TXAFJTQC;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -188,6 +206,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -237,6 +256,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -259,10 +279,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EPU3EJA4R8;
+				DEVELOPMENT_TEAM = N2TXAFJTQC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ARApp",
+				);
 				INFOPLIST_FILE = ARApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DoEager.ARApp;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.kudan.ar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -272,10 +296,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EPU3EJA4R8;
+				DEVELOPMENT_TEAM = N2TXAFJTQC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ARApp",
+				);
 				INFOPLIST_FILE = ARApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.DoEager.ARApp;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.kudan.ar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

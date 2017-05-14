@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import KudanAR
 
-class ViewController: UIViewController {
+class ViewController: ARCameraViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func setupContent() {
     }
 
     override func didReceiveMemoryWarning() {
