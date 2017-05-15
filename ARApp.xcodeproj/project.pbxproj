@@ -19,6 +19,7 @@
 		A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A201EC8B503007EB68A /* BaseViewController.swift */; };
 		A8120A231EC8B5A8007EB68A /* AddNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */; };
 		A8AB0D2C1EC8C853008A97C2 /* ShowUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */; };
+		A8AB0D321EC8D6B1008A97C2 /* victor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A8AB0D311EC8D6B1008A97C2 /* victor.mp4 */; };
 		C6154CB895F20A847A9159CC /* Pods_ARApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		A8120A201EC8B503007EB68A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewUserViewController.swift; sourceTree = "<group>"; };
 		A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowUsersViewController.swift; sourceTree = "<group>"; };
+		A8AB0D311EC8D6B1008A97C2 /* victor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = victor.mp4; sourceTree = "<group>"; };
 		EBAECD875BC6D86818E81C57 /* Pods-ARApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				A8120A0F1EC8934A007EB68A /* Info.plist */,
 				A8120A071EC8934A007EB68A /* Main.storyboard */,
 				A8120A0C1EC8934A007EB68A /* LaunchScreen.storyboard */,
+				A8AB0D311EC8D6B1008A97C2 /* victor.mp4 */,
 				A8120A0A1EC8934A007EB68A /* Assets.xcassets */,
 				A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */,
 			);
@@ -186,6 +189,7 @@
 			files = (
 				A8120A0E1EC8934A007EB68A /* LaunchScreen.storyboard in Resources */,
 				A8120A1C1EC89F60007EB68A /* GoogleService-Info.plist in Resources */,
+				A8AB0D321EC8D6B1008A97C2 /* victor.mp4 in Resources */,
 				A8120A0B1EC8934A007EB68A /* Assets.xcassets in Resources */,
 				A8120A091EC8934A007EB68A /* Main.storyboard in Resources */,
 			);

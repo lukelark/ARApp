@@ -16,6 +16,8 @@ class ShowUsersViewController: UIViewController, UITableViewDelegate, UITableVie
     let sections = ["Victor Krusenstrahle"]
     let items = [["Victor Krusenstrahle"]]
     
+    let defaultImageSize = 600
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,7 +50,7 @@ class ShowUsersViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func generateQRCode(string: String) -> UIImage {
         var qrCode = QRCode(string)
-        qrCode?.size = CGSize(width: 600, height: 600)
+        qrCode?.size = CGSize(width: defaultImageSize - 5, height: defaultImageSize - 5)
         
         return (qrCode?.image)!
     }
