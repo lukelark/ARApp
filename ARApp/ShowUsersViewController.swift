@@ -8,13 +8,16 @@
 
 import UIKit
 import QRCode
+import Firebase
 
 class ShowUsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let sections = ["Victor Krusenstrahle"]
-    let items = [["Victor Krusenstrahle"]]
+    let sections = ["Victor Krusenstrahle", "Filip Krusenstrahle", "Paulina Krusenstrahle", "Daniel Krusenstrahle"]
+    let items = [["Victor Krusenstrahle"], ["Filip Krusenstrahle"], ["Paulina Krusenstrahle"], ["Daniel Krusenstrahle"]]
+    
+    var fb_random_key = arc4random()
     
     let defaultImageSize = 600
     
@@ -38,7 +41,7 @@ class ShowUsersViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let UID = sections[indexPath.row]
+        let UID = items[indexPath.section][indexPath.row]
         let QRCODEIMAGE = generateQRCode(string: UID)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath as IndexPath) as! userCell
