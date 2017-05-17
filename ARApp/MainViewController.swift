@@ -13,10 +13,24 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var addUserButton: UIButton!
+    @IBOutlet weak var staffButton: UIButton!
+    @IBOutlet weak var patientsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    @IBAction func patientsButton(_ sender: Any) {
+        let ctrl = self.storyboard!.instantiateViewController(withIdentifier: "PatientsViewControllerId") as! PatientsViewController
+        let navController = UINavigationController(rootViewController: ctrl)
+        present(navController, animated:true, completion: nil)
+    }
+    
+    @IBAction func staffButton(_ sender: Any) {
+        let ctrl = self.storyboard!.instantiateViewController(withIdentifier: "StaffViewControllerId") as! StaffViewController
+        let navController = UINavigationController(rootViewController: ctrl)
+        present(navController, animated:true, completion: nil)
     }
     
     @IBAction func scanAction(_ sender: Any) {
