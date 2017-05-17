@@ -9,9 +9,13 @@
 import UIKit
 import KudanAR
 import QRCode
+import FirebaseDatabase
+import FirebaseAuth
 
 class ViewController: ARCameraViewController {
 
+    var userArray: [String] = []
+    
     let defaultImageSize = 600
     
     override func viewDidLoad() {
@@ -54,6 +58,8 @@ class ViewController: ARCameraViewController {
 
     }
     
+    // Först scanna QR kod, ifall det stämmer -> Starta AR
+    
     func generateQRCode(string: String) -> UIImage {
         var qrCode = QRCode(string)
             qrCode?.size = CGSize(width: defaultImageSize - 10, height: defaultImageSize - 10)
@@ -80,6 +86,21 @@ class ViewController: ARCameraViewController {
         UIGraphicsEndImageContext()
         
         return newImage!
+    }
+    
+    func grabData() {
+        let ref = FIRDatabase.database().reference()
+        
+        ref.child("users").child("staff").observe(.childAdded, with: { snapshot in
+            let value = snapshot.value as? NSDictionary
+            
+            let UID = value?["uid"] as? String
+            let name = value?["name"] as? String
+            
+            let key = "\(UID!)-\(name!)"
+            
+            self.userArray.append(key)
+        })
     }
     
     @IBAction func dismissAction(_ sender: Any) {
