@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ss-symbolicons-line.ttf">
+            <string>SSSymboliconsLine</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -126,7 +131,7 @@
                                         <rect key="frame" x="0.0" y="56" width="375" height="190"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oj0-zh-8Fp" id="XqH-uC-pRB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="189.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bNZ-HO-7h5">
@@ -419,6 +424,122 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJF-bq-iAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1813.5999999999999" y="-242.42878560719643"/>
+        </scene>
+        <!--QR reader-->
+        <scene sceneID="0E1-nk-Ggi">
+            <objects>
+                <viewController storyboardIdentifier="QRReaderViewControllerId" id="H9x-bW-bsS" userLabel="QR reader" customClass="QRReaderViewController" customModule="Shoppify" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Qj-Be-fpf"/>
+                        <viewControllerLayoutGuide type="bottom" id="OKh-Tv-cUu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aab-8X-aT9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh4-XS-eqg" userLabel="Container" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="87" y="212" width="200" height="199"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Bg-xb-dBX" userLabel="ViewFinder">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Center the barcode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnV-Aa-DSe">
+                                        <rect key="frame" x="0.0" y="168" width="200" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="U1c-3V-VDU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7Bg-xb-dBX" firstAttribute="trailing" secondItem="dnV-Aa-DSe" secondAttribute="trailing" id="45U-h8-gxF"/>
+                                    <constraint firstAttribute="height" constant="199" id="8AY-Rn-6eg"/>
+                                    <constraint firstItem="dnV-Aa-DSe" firstAttribute="top" secondItem="gh4-XS-eqg" secondAttribute="top" constant="168" id="CdU-IJ-jSW"/>
+                                    <constraint firstItem="7Bg-xb-dBX" firstAttribute="top" secondItem="gh4-XS-eqg" secondAttribute="top" id="K7w-sf-R5R"/>
+                                    <constraint firstItem="dnV-Aa-DSe" firstAttribute="top" secondItem="7Bg-xb-dBX" secondAttribute="bottom" constant="8" symbolic="YES" id="Lmy-Em-0Qn"/>
+                                    <constraint firstAttribute="width" constant="200" id="PEG-3B-lRz"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Bg-xb-dBX" secondAttribute="trailing" id="onH-7b-ah8"/>
+                                    <constraint firstAttribute="bottom" secondItem="dnV-Aa-DSe" secondAttribute="bottom" constant="10" id="rzq-za-kCU"/>
+                                    <constraint firstItem="7Bg-xb-dBX" firstAttribute="leading" secondItem="dnV-Aa-DSe" secondAttribute="leading" id="sUd-lv-eAP"/>
+                                    <constraint firstItem="7Bg-xb-dBX" firstAttribute="leading" secondItem="gh4-XS-eqg" secondAttribute="leading" id="wd7-bK-VFv"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jh-d1-s0t" userLabel="Info view" customClass="SpringView" customModule="Spring">
+                                <rect key="frame" x="0.0" y="583" width="375" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan to find or add product to your board" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9V-39-1sR">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="cql-ce-Sc2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQj-7T-LNc">
+                                        <rect key="frame" x="332" y="3" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="IgD-9B-Fox"/>
+                                            <constraint firstAttribute="height" constant="35" id="WeF-kb-n9f"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SSSymboliconsLine" family="SS Symbolicons" pointSize="21"/>
+                                        <state key="normal">
+                                            <string key="title">	
+</string>
+                                            <color key="titleColor" red="0.52156862749999999" green="0.92941176469999998" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toggleFlashlightAction:" destination="H9x-bW-bsS" eventType="touchUpInside" id="usm-eg-7Ap"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.74606681029999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hQj-7T-LNc" firstAttribute="trailing" secondItem="3jh-d1-s0t" secondAttribute="trailingMargin" id="JJM-Ae-Idm"/>
+                                    <constraint firstAttribute="bottom" secondItem="p9V-39-1sR" secondAttribute="bottom" constant="-1" id="Wf6-7N-jVS"/>
+                                    <constraint firstItem="p9V-39-1sR" firstAttribute="leading" secondItem="3jh-d1-s0t" secondAttribute="leading" id="Z0A-nW-86E"/>
+                                    <constraint firstItem="p9V-39-1sR" firstAttribute="top" secondItem="3jh-d1-s0t" secondAttribute="top" constant="1" id="bOt-eC-aei"/>
+                                    <constraint firstItem="hQj-7T-LNc" firstAttribute="centerY" secondItem="p9V-39-1sR" secondAttribute="centerY" id="kEF-Fx-u60"/>
+                                    <constraint firstAttribute="height" constant="40" id="m74-fN-ga8"/>
+                                    <constraint firstAttribute="trailing" secondItem="p9V-39-1sR" secondAttribute="trailing" id="rzB-nV-ZjH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3jh-d1-s0t" firstAttribute="centerX" secondItem="gh4-XS-eqg" secondAttribute="centerX" id="0zy-G1-7rO"/>
+                            <constraint firstItem="3jh-d1-s0t" firstAttribute="bottom" secondItem="OKh-Tv-cUu" secondAttribute="top" id="7YE-dk-ien"/>
+                            <constraint firstItem="gh4-XS-eqg" firstAttribute="centerX" secondItem="aab-8X-aT9" secondAttribute="centerX" id="A88-aC-v2b"/>
+                            <constraint firstItem="3jh-d1-s0t" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aab-8X-aT9" secondAttribute="top" constant="583" id="Iii-mV-msj"/>
+                            <constraint firstItem="3jh-d1-s0t" firstAttribute="leading" secondItem="aab-8X-aT9" secondAttribute="leading" id="QQF-x6-54o"/>
+                            <constraint firstItem="gh4-XS-eqg" firstAttribute="centerY" secondItem="aab-8X-aT9" secondAttribute="centerY" id="zAW-4w-pBw"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="QR Reader" id="bzu-yb-swn">
+                        <barButtonItem key="leftBarButtonItem" title="" id="0fj-9G-aqV">
+                            <connections>
+                                <action selector="backButton:" destination="H9x-bW-bsS" id="iur-F3-VPQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="backButton" destination="0fj-9G-aqV" id="erA-oj-ePj"/>
+                        <outlet property="containerView" destination="gh4-XS-eqg" id="ylY-TF-0kF"/>
+                        <outlet property="infoLabel" destination="dnV-Aa-DSe" id="o2L-Gy-ZQY"/>
+                        <outlet property="infoView" destination="3jh-d1-s0t" id="pER-kR-Uws"/>
+                        <outlet property="lightToggle" destination="hQj-7T-LNc" id="Gia-Kq-8aj"/>
+                        <outlet property="viewFinder" destination="7Bg-xb-dBX" id="f5z-QM-ctt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="36M-xy-Ro0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="460"/>
         </scene>
     </scenes>
 </document>
