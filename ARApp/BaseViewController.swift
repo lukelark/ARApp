@@ -6,7 +6,9 @@
 //  Copyright © 2017 Victor Krusenstråhle. All rights reserved.
 //
 
-import Firebase
+import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class BaseViewController: UIViewController {
     
