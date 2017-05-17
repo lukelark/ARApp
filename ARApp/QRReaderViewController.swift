@@ -25,6 +25,7 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
     var userArray: [String] = []
     let defaultImageSize = 600
     var UID: String = String()
+    var runContent = false
     
     private var overlay: CAShapeLayer = {
         var overlay             = CAShapeLayer()
@@ -100,26 +101,28 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
     
     // MARK : - AR Stuff
     override func setupContent() {
+        if(runContent) {
+            let string = "Victor Krusenstrahle" // UID GOES HERE
+            let image = generateQRCode(string: string)
+            
+            // Initialise image trackable
+            let imageTrackable = ARImageTrackable(image: image, name: "")
+            
+            // Get instance of image tracker manager
+            let trackerManager = ARImageTrackerManager.getInstance()
+            trackerManager?.initialise()
+            
+            // Add image trackable to image tracker manager
+            trackerManager?.addTrackable(imageTrackable)
+            
+            // IMAGE
+            // Initialise image node
+            let imageNode = ARImageNode(bundledFile: "victor.jpg")
+            
+            // Add image node to image trackable
+            imageTrackable?.world.addChild(imageNode)
+        }
         
-        let string = "Victor Krusenstrahle" // UID GOES HERE
-        let image = generateQRCode(string: string)
-        
-        // Initialise image trackable
-        let imageTrackable = ARImageTrackable(image: image, name: "")
-        
-        // Get instance of image tracker manager
-        let trackerManager = ARImageTrackerManager.getInstance()
-        trackerManager?.initialise()
-        
-        // Add image trackable to image tracker manager
-        trackerManager?.addTrackable(imageTrackable)
-        
-        // IMAGE
-        // Initialise image node
-        let imageNode = ARImageNode(bundledFile: "victor.jpg")
-        
-        // Add image node to image trackable
-        imageTrackable?.world.addChild(imageNode)
     }
     
     func generateQRCode(string: String) -> UIImage {
@@ -252,7 +255,8 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
             if metadataObj.stringValue != nil {
                 captureSession?.stopRunning()
                 delegate?.codeDidRead!(code: metadataObj.stringValue)
-                
+                runContent = true
+                setupContent()
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 let systemSoundID: SystemSoundID = 1114
                 AudioServicesPlaySystemSound (systemSoundID)
