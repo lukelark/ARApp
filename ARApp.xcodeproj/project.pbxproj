@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A5D3A5B1ECCC32F00006076 /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */; };
+		9A5D3A5D1ECCC34C00006076 /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */; };
 		A8120A041EC8934A007EB68A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A031EC8934A007EB68A /* AppDelegate.swift */; };
 		A8120A061EC8934A007EB68A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A051EC8934A007EB68A /* ViewController.swift */; };
 		A8120A091EC8934A007EB68A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8120A071EC8934A007EB68A /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		5F9223326CA7F6CDC1DF8B11 /* Pods-ARApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.release.xcconfig"; sourceTree = "<group>"; };
 		867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewController.swift; sourceTree = "<group>"; };
+		9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
 		A8120A001EC8934A007EB68A /* ARApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8120A031EC8934A007EB68A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8120A051EC8934A007EB68A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */,
 				A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */,
 				A8120A1E1EC8B28A007EB68A /* MainViewController.swift */,
+				9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */,
+				9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */,
 			);
 			path = ARApp;
 			sourceTree = "<group>";
@@ -254,7 +260,9 @@
 				A8120A1F1EC8B28A007EB68A /* MainViewController.swift in Sources */,
 				A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */,
 				A8120A061EC8934A007EB68A /* ViewController.swift in Sources */,
+				9A5D3A5B1ECCC32F00006076 /* StaffViewController.swift in Sources */,
 				A8AB0D2C1EC8C853008A97C2 /* ShowUsersViewController.swift in Sources */,
+				9A5D3A5D1ECCC34C00006076 /* PatientsViewController.swift in Sources */,
 				A8120A041EC8934A007EB68A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
