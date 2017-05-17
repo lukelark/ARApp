@@ -12,57 +12,49 @@ import QRCode
 import FirebaseDatabase
 import FirebaseAuth
 
+@objc protocol ViewControllerDelegate {
+    @objc optional func dismiss()
+}
+
 class ViewController: ARCameraViewController {
 
+    var delegate: ViewControllerDelegate?
+
+    var UID: String = String()
     var userArray: [String] = []
-    
     let defaultImageSize = 600
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // MARK : - AR
     override func setupContent() {
-        
-        let string = "Victor Krusenstrahle" // UID GOES HERE
+        print("FUNKAR : SETUPCONTENT")
+        let string = UID // Should be provided by QR reader.
         let image = generateQRCode(string: string)
-        
-        let visualImage = self.resizeImage(image: UIImage(named: "victor.jpg")!, targetSize: CGSize(width: defaultImageSize, height: defaultImageSize)) // Bundle this.
-        
+            
         // Initialise image trackable
         let imageTrackable = ARImageTrackable(image: image, name: "")
-        
+            
         // Get instance of image tracker manager
         let trackerManager = ARImageTrackerManager.getInstance()
         trackerManager?.initialise()
-        
+            
         // Add image trackable to image tracker manager
         trackerManager?.addTrackable(imageTrackable)
-        
-         // IMAGE
+            
+        // IMAGE
         // Initialise image node
-        let imageNode = ARImageNode(bundledFile: "victor.jpg")
-        
+        let imageNode = ARImageNode(bundledFile: "victor.jpg") // Should be provided by firebase
+            
         // Add image node to image trackable
         imageTrackable?.world.addChild(imageNode)
-        
-        
-        // VIDEO
-        /*
-        // Initialise video node
-        let videoNode = ARVideoNode(bundledFile: "victor.mp4")
-        
-        // Add video node to image trackable
-        imageTrackable?.world.addChild(videoNode)
-        */
-
     }
-    
-    // Först scanna QR kod, ifall det stämmer -> Starta AR
     
     func generateQRCode(string: String) -> UIImage {
         var qrCode = QRCode(string)
-            qrCode?.size = CGSize(width: defaultImageSize - 10, height: defaultImageSize - 10)
+        qrCode?.size = CGSize(width: defaultImageSize - 10, height: defaultImageSize - 10)
         
         return (qrCode?.image)!
     }
@@ -104,11 +96,7 @@ class ViewController: ARCameraViewController {
     }
     
     @IBAction func dismissAction(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        delegate?.dismiss!()
     }
 
 

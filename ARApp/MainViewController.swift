@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
     
     @IBAction func scanAction(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewControllerId") as! ViewController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "QRReaderViewControllerId") as! QRReaderViewController
         self.present(newViewController, animated: true, completion: nil)
     }
     

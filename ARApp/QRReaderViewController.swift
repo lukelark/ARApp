@@ -19,13 +19,9 @@ import FirebaseAuth
     @objc optional func codeDidRead(code:String)
 }
 
-class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObjectsDelegate {
+class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjectsDelegate, ViewControllerDelegate {
     
     var delegate: QRReaderViewControllerDelegate?
-    var userArray: [String] = []
-    let defaultImageSize = 600
-    var UID: String = String()
-    var runContent = false
     
     private var overlay: CAShapeLayer = {
         var overlay             = CAShapeLayer()
@@ -95,99 +91,7 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
         }
     }
     
-    // MARK : - AR
-    override func setupContent() {
-        if(runContent) {
-            print("FUNKAR : SETUPCONTENT")
-            let string = UID // Should be provided by QR reader.
-            let image = generateQRCode(string: string)
-            
-            // Initialise image trackable
-            let imageTrackable = ARImageTrackable(image: image, name: "")
-            
-            // Get instance of image tracker manager
-            let trackerManager = ARImageTrackerManager.getInstance()
-            trackerManager?.initialise()
-            
-            // Add image trackable to image tracker manager
-            trackerManager?.addTrackable(imageTrackable)
-            
-            // IMAGE
-            // Initialise image node
-            let imageNode = ARImageNode(bundledFile: "victor.jpg") // Should be provided by firebase
-            
-            // Add image node to image trackable
-            imageTrackable?.world.addChild(imageNode)
-        }
-        
-    }
-    
-    func generateQRCode(string: String) -> UIImage {
-        var qrCode = QRCode(string)
-        qrCode?.size = CGSize(width: defaultImageSize - 10, height: defaultImageSize - 10)
-        
-        return (qrCode?.image)!
-    }
-    
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        
-        let widthRatio  = targetSize.width  / image.size.width
-        let heightRatio = targetSize.height / image.size.height
-        
-        var newSize: CGSize
-        if(widthRatio > heightRatio) {
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-        } else {
-            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-        }
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
-    
-    func grabData() {
-        let ref = FIRDatabase.database().reference()
-        
-        ref.child("users").child("staff").observe(.childAdded, with: { snapshot in
-            let value = snapshot.value as? NSDictionary
-            
-            let UID = value?["uid"] as? String
-            let name = value?["name"] as? String
-            
-            let key = "\(UID!)-\(name!)"
-            
-            self.userArray.append(key)
-        })
-    }
-    
     // MARK : - Essentials
-    func hexStringToUIColor(hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.characters.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
     func setupShadow(UIItem: AnyObject, offsetX: CGFloat, offsetY: CGFloat, spread: CGFloat, alpha: Float, HEXColor: String) {
         UIItem.layer.shadowColor = hexStringToUIColor(hex: HEXColor).cgColor
         UIItem.layer.shadowOpacity = alpha
@@ -224,6 +128,10 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
         }
     }
     
+    func dismiss() {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         containerView.isHidden = false
         containerView.damping = 1
@@ -253,10 +161,11 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
                 captureSession?.stopRunning()
                 delegate?.codeDidRead!(code: metadataObj.stringValue)
                 
-                runContent = true
-                UID = metadataObj.stringValue
+                let alert = storyboard?.instantiateViewController(withIdentifier: "ViewControllerId") as! ViewController
+                alert.delegate = self
+                alert.UID = metadataObj.stringValue
+                present(alert, animated: true, completion: nil)
                 print("FUNKAR QR READER")
-                setupContent()
                 
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 let systemSoundID: SystemSoundID = 1114

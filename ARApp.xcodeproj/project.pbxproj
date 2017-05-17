@@ -103,7 +103,6 @@
 				A8120A1D1EC89FF7007EB68A /* Supporting files */,
 				A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */,
 				A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */,
-				A8120A1E1EC8B28A007EB68A /* MainViewController.swift */,
 				9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */,
 				9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */,
 				A8AB0D391ECCD01A008A97C2 /* AR */,
@@ -140,6 +139,7 @@
 		A8AB0D391ECCD01A008A97C2 /* AR */ = {
 			isa = PBXGroup;
 			children = (
+				A8120A1E1EC8B28A007EB68A /* MainViewController.swift */,
 				A8120A051EC8934A007EB68A /* ViewController.swift */,
 				A8AB0D371ECCD017008A97C2 /* QRReaderViewController.swift */,
 			);
