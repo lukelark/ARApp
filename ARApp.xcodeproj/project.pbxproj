@@ -101,10 +101,7 @@
 			children = (
 				9A5D3A5E1ECCDB5E00006076 /* Extensions */,
 				A8120A1D1EC89FF7007EB68A /* Supporting files */,
-				A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */,
-				A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */,
-				9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */,
-				9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */,
+				A8AB0D3A1ECCDF34008A97C2 /* Övrigt */,
 				A8AB0D391ECCD01A008A97C2 /* AR */,
 			);
 			path = ARApp;
@@ -127,7 +124,6 @@
 				A8120A201EC8B503007EB68A /* BaseViewController.swift */,
 				A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */,
 				A8120A0F1EC8934A007EB68A /* Info.plist */,
-				A8120A071EC8934A007EB68A /* Main.storyboard */,
 				A8120A0C1EC8934A007EB68A /* LaunchScreen.storyboard */,
 				A8AB0D311EC8D6B1008A97C2 /* victor.mp4 */,
 				A8120A0A1EC8934A007EB68A /* Assets.xcassets */,
@@ -139,11 +135,23 @@
 		A8AB0D391ECCD01A008A97C2 /* AR */ = {
 			isa = PBXGroup;
 			children = (
-				A8120A1E1EC8B28A007EB68A /* MainViewController.swift */,
+				A8120A071EC8934A007EB68A /* Main.storyboard */,
 				A8120A051EC8934A007EB68A /* ViewController.swift */,
 				A8AB0D371ECCD017008A97C2 /* QRReaderViewController.swift */,
 			);
 			name = AR;
+			sourceTree = "<group>";
+		};
+		A8AB0D3A1ECCDF34008A97C2 /* Övrigt */ = {
+			isa = PBXGroup;
+			children = (
+				A8120A1E1EC8B28A007EB68A /* MainViewController.swift */,
+				A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */,
+				A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */,
+				9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */,
+				9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */,
+			);
+			name = "Övrigt";
 			sourceTree = "<group>";
 		};
 		AEA7F58FA6800CCCF7D66476 /* Pods */ = {

@@ -30,26 +30,32 @@ class ViewController: ARCameraViewController {
     
     // MARK : - AR
     override func setupContent() {
-        print("FUNKAR : SETUPCONTENT")
-        let string = UID // Should be provided by QR reader.
-        let image = generateQRCode(string: string)
+        self.load(completion: { (string) -> () in
+            print("FUNKAR : SETUPCONTENT")
+            let string = string // Should be provided by QR reader.
+            let image = self.generateQRCode(string: string)
             
-        // Initialise image trackable
-        let imageTrackable = ARImageTrackable(image: image, name: "")
+            // Initialise image trackable
+            let imageTrackable = ARImageTrackable(image: image, name: "")
             
-        // Get instance of image tracker manager
-        let trackerManager = ARImageTrackerManager.getInstance()
-        trackerManager?.initialise()
+            // Get instance of image tracker manager
+            let trackerManager = ARImageTrackerManager.getInstance()
+            trackerManager?.initialise()
             
-        // Add image trackable to image tracker manager
-        trackerManager?.addTrackable(imageTrackable)
+            // Add image trackable to image tracker manager
+            trackerManager?.addTrackable(imageTrackable)
             
-        // IMAGE
-        // Initialise image node
-        let imageNode = ARImageNode(bundledFile: "victor.jpg") // Should be provided by firebase
+            // IMAGE
+            // Initialise image node
+            let imageNode = ARImageNode(bundledFile: "victor.jpg") // Should be provided by firebase
             
-        // Add image node to image trackable
-        imageTrackable?.world.addChild(imageNode)
+            // Add image node to image trackable
+            imageTrackable?.world.addChild(imageNode)
+        })
+    }
+    
+    func load(completion: @escaping (String) -> ()) {
+        completion(UID)
     }
     
     func generateQRCode(string: String) -> UIImage {
