@@ -95,14 +95,11 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
         }
     }
     
-    // 0. Skapa en QR kod med UID för att testa.
-    // 1. QR Code verifiera -> Printa coden (som är en UID)
-    // 2. AR delen initializas och laddar ner data om användaren från angiven UID
-    
-    // MARK : - AR Stuff
+    // MARK : - AR
     override func setupContent() {
         if(runContent) {
-            let string = "Victor Krusenstrahle" // UID GOES HERE
+            print("FUNKAR : SETUPCONTENT")
+            let string = UID // Should be provided by QR reader.
             let image = generateQRCode(string: string)
             
             // Initialise image trackable
@@ -117,7 +114,7 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
             
             // IMAGE
             // Initialise image node
-            let imageNode = ARImageNode(bundledFile: "victor.jpg")
+            let imageNode = ARImageNode(bundledFile: "victor.jpg") // Should be provided by firebase
             
             // Add image node to image trackable
             imageTrackable?.world.addChild(imageNode)
@@ -255,8 +252,12 @@ class QRReaderViewController: ARCameraViewController, AVCaptureMetadataOutputObj
             if metadataObj.stringValue != nil {
                 captureSession?.stopRunning()
                 delegate?.codeDidRead!(code: metadataObj.stringValue)
+                
                 runContent = true
+                UID = metadataObj.stringValue
+                print("FUNKAR QR READER")
                 setupContent()
+                
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 let systemSoundID: SystemSoundID = 1114
                 AudioServicesPlaySystemSound (systemSoundID)
