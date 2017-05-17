@@ -91,6 +91,22 @@
                                     <action selector="showUsersAction:" destination="Kzh-Be-6SV" eventType="touchUpInside" id="TFl-Vo-kLs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfd-f6-pUg">
+                                <rect key="frame" x="16" y="432" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Staff"/>
+                                <connections>
+                                    <action selector="staffButton:" destination="Kzh-Be-6SV" eventType="touchUpInside" id="gRt-eQ-gLc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOg-Dh-oJv">
+                                <rect key="frame" x="16" y="470" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Patients"/>
+                                <connections>
+                                    <action selector="patientsButton:" destination="Kzh-Be-6SV" eventType="touchUpInside" id="uFd-3S-cT5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -104,7 +120,9 @@
                     </view>
                     <connections>
                         <outlet property="addUserButton" destination="H26-kV-wrS" id="acD-hm-hiY"/>
+                        <outlet property="patientsButton" destination="cOg-Dh-oJv" id="w4p-Jv-42Q"/>
                         <outlet property="scanButton" destination="xVh-On-gJQ" id="kzy-aO-E09"/>
+                        <outlet property="staffButton" destination="Qfd-f6-pUg" id="DZq-Nl-yEP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rso-vE-hBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
