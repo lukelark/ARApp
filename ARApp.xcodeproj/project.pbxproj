@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9A5D3A5B1ECCC32F00006076 /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */; };
 		9A5D3A5D1ECCC34C00006076 /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */; };
+		9A5D3A601ECCDB7E00006076 /* collectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A5F1ECCDB7E00006076 /* collectionViewCell.swift */; };
+		9A5D3A621ECCDBA600006076 /* tableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A611ECCDBA600006076 /* tableViewCell.swift */; };
 		A8120A041EC8934A007EB68A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A031EC8934A007EB68A /* AppDelegate.swift */; };
 		A8120A061EC8934A007EB68A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A051EC8934A007EB68A /* ViewController.swift */; };
 		A8120A091EC8934A007EB68A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8120A071EC8934A007EB68A /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewController.swift; sourceTree = "<group>"; };
 		9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
+		9A5D3A5F1ECCDB7E00006076 /* collectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionViewCell.swift; sourceTree = "<group>"; };
+		9A5D3A611ECCDBA600006076 /* tableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewCell.swift; sourceTree = "<group>"; };
 		A8120A001EC8934A007EB68A /* ARApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8120A031EC8934A007EB68A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8120A051EC8934A007EB68A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A5D3A5E1ECCDB5E00006076 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9A5D3A5F1ECCDB7E00006076 /* collectionViewCell.swift */,
+				9A5D3A611ECCDBA600006076 /* tableViewCell.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		A81209F71EC8934A007EB68A = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 		A8120A021EC8934A007EB68A /* ARApp */ = {
 			isa = PBXGroup;
 			children = (
+				9A5D3A5E1ECCDB5E00006076 /* Extensions */,
 				A8120A1D1EC89FF7007EB68A /* Supporting files */,
 				A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */,
 				A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */,
@@ -268,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8120A231EC8B5A8007EB68A /* AddNewUserViewController.swift in Sources */,
+				9A5D3A621ECCDBA600006076 /* tableViewCell.swift in Sources */,
 				A8120A1F1EC8B28A007EB68A /* MainViewController.swift in Sources */,
 				A8AB0D381ECCD017008A97C2 /* QRReaderViewController.swift in Sources */,
 				A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */,
@@ -275,6 +290,7 @@
 				9A5D3A5B1ECCC32F00006076 /* StaffViewController.swift in Sources */,
 				A8AB0D2C1EC8C853008A97C2 /* ShowUsersViewController.swift in Sources */,
 				9A5D3A5D1ECCC34C00006076 /* PatientsViewController.swift in Sources */,
+				9A5D3A601ECCDB7E00006076 /* collectionViewCell.swift in Sources */,
 				A8120A041EC8934A007EB68A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

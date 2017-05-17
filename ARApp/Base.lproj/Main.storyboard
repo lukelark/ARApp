@@ -220,7 +220,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1DG-Ek-uT6">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="1DG-Ek-uT6">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -261,6 +261,16 @@
                                 <rect key="frame" x="16" y="28" width="343" height="619"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="cdK-Tb-4Yl">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cdK-Tb-4Yl" id="rlu-4p-R8a">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="WwL-St-EOY" id="XMC-tT-Nk7"/>
                                     <outlet property="delegate" destination="WwL-St-EOY" id="NPc-OY-L6a"/>
@@ -428,7 +438,7 @@
         <!--QR reader-->
         <scene sceneID="0E1-nk-Ggi">
             <objects>
-                <viewController storyboardIdentifier="QRReaderViewControllerId" id="H9x-bW-bsS" userLabel="QR reader" customClass="QRReaderViewController" customModule="Shoppify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRReaderViewControllerId" id="H9x-bW-bsS" userLabel="QR reader" customClass="QRReaderViewController" customModule="ARApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Qj-Be-fpf"/>
                         <viewControllerLayoutGuide type="bottom" id="OKh-Tv-cUu"/>
