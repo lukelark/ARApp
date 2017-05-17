@@ -161,6 +161,10 @@ class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjects
                 captureSession?.stopRunning()
                 delegate?.codeDidRead!(code: metadataObj.stringValue)
                 
+                let alert = storyboard?.instantiateViewController(withIdentifier: "ViewControllerId") as! ViewController
+                alert.UID = metadataObj.stringValue
+                alert.delegate = self
+                present(alert, animated: true, completion: nil)
                 print("FUNKAR QR READER")
                 
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
