@@ -16,8 +16,8 @@
 		A8120A191EC89458007EB68A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A181EC89458007EB68A /* libc++.tbd */; };
 		A8120A1C1EC89F60007EB68A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */; };
 		A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A201EC8B503007EB68A /* BaseViewController.swift */; };
-		A850972A1ECD890500631183 /* identify.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85097281ECD890500631183 /* identify.xcassets */; };
-		A850972B1ECD890500631183 /* IdentifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85097291ECD890500631183 /* IdentifyView.swift */; };
+		A850972E1ECD903B00631183 /* identify.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A850972C1ECD903B00631183 /* identify.xcassets */; };
+		A850972F1ECD903B00631183 /* IdentifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A850972D1ECD903B00631183 /* IdentifyView.swift */; };
 		A8AB0D381ECCD017008A97C2 /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AB0D371ECCD017008A97C2 /* QRReaderViewController.swift */; };
 		A8AB0D3F1ECD05EE008A97C2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AB0D3E1ECD05EE008A97C2 /* LoadingViewController.swift */; };
 		C6154CB895F20A847A9159CC /* Pods_ARApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */; };
@@ -38,8 +38,8 @@
 		A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kudan-Swift-Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8120A201EC8B503007EB68A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		A85097281ECD890500631183 /* identify.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = identify.xcassets; sourceTree = "<group>"; };
-		A85097291ECD890500631183 /* IdentifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifyView.swift; sourceTree = "<group>"; };
+		A850972C1ECD903B00631183 /* identify.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = identify.xcassets; sourceTree = "<group>"; };
+		A850972D1ECD903B00631183 /* IdentifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifyView.swift; sourceTree = "<group>"; };
 		A8AB0D371ECCD017008A97C2 /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		A8AB0D3E1ECD05EE008A97C2 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		EBAECD875BC6D86818E81C57 /* Pods-ARApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,8 +133,8 @@
 		A8AB0D441ECD0C3A008A97C2 /* Animate */ = {
 			isa = PBXGroup;
 			children = (
-				A85097281ECD890500631183 /* identify.xcassets */,
-				A85097291ECD890500631183 /* IdentifyView.swift */,
+				A850972C1ECD903B00631183 /* identify.xcassets */,
+				A850972D1ECD903B00631183 /* IdentifyView.swift */,
 			);
 			name = Animate;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 				A8120A1C1EC89F60007EB68A /* GoogleService-Info.plist in Resources */,
 				A8120A0B1EC8934A007EB68A /* Assets.xcassets in Resources */,
 				A8120A091EC8934A007EB68A /* Main.storyboard in Resources */,
-				A850972A1ECD890500631183 /* identify.xcassets in Resources */,
+				A850972E1ECD903B00631183 /* identify.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +276,7 @@
 			files = (
 				A8AB0D381ECCD017008A97C2 /* QRReaderViewController.swift in Sources */,
 				A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */,
-				A850972B1ECD890500631183 /* IdentifyView.swift in Sources */,
+				A850972F1ECD903B00631183 /* IdentifyView.swift in Sources */,
 				A8AB0D3F1ECD05EE008A97C2 /* LoadingViewController.swift in Sources */,
 				A8120A061EC8934A007EB68A /* ViewController.swift in Sources */,
 				A8120A041EC8934A007EB68A /* AppDelegate.swift in Sources */,

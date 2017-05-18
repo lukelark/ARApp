@@ -70,8 +70,12 @@ class ViewController: ARCameraViewController {
             if (error != nil) {
                 print(error!)
             } else {
-                let image = UIImage(data: data!)
-                completion(image!)
+                self.animationView.addVerifiedAnimation()
+                let when = DispatchTime.now() + 0.5
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    let image = UIImage(data: data!)
+                    completion(image!)
+                }
             }
         }
     }

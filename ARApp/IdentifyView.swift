@@ -127,6 +127,31 @@ class IdentifyView : UIView, CAAnimationDelegate {
 		viewsByName["identifying2__yScale"] = identifying2__yScale
 		viewsByName["identifying2"] = identifying2
 
+		let verified__root = IdentifyPassthroughView()
+		let verified__xScale = IdentifyPassthroughView()
+		let verified__yScale = IdentifyPassthroughView()
+		let verified = UIImageView()
+		let imgVerified = UIImage(named:"verified.png", in: bundle, compatibleWith: nil)
+		if imgVerified == nil {
+			print("** Warning: Could not create image from 'verified.png'")
+		}
+		verified.image = imgVerified
+		verified.contentMode = .center
+		verified.bounds = CGRect(x:0, y:0, width:224.0, height:224.0)
+		verified__root.layer.position = CGPoint(x:401.066, y:384.888)
+		verified__xScale.transform = CGAffineTransform(scaleX: 0.38, y: 1.00)
+		verified__yScale.transform = CGAffineTransform(scaleX: 1.00, y: 0.38)
+		verified__root.transform = CGAffineTransform(rotationAngle: 0.000)
+		__scaling__.addSubview(verified__root)
+		verified__root.addSubview(verified__xScale)
+		verified__xScale.addSubview(verified__yScale)
+		verified__yScale.addSubview(verified)
+		__scaling__.addSubview(verified__root)
+		viewsByName["verified__root"] = verified__root
+		viewsByName["verified__xScale"] = verified__xScale
+		viewsByName["verified__yScale"] = verified__yScale
+		viewsByName["verified"] = verified
+
 		self.viewsByName = viewsByName
 	}
 
@@ -149,6 +174,7 @@ class IdentifyView : UIView, CAAnimationDelegate {
 	}
 
 	func addSearchAnimation(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		let easeInOutTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 		if let complete = completion {
 			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
@@ -157,6 +183,26 @@ class IdentifyView : UIView, CAAnimationDelegate {
 			self.layer.add(representativeAnimation, forKey: "Search")
 			self.animationCompletions[layer.animation(forKey: "Search")!] = complete
 		}
+
+		let verifiedOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+		verifiedOpacityAnimation.duration = 2.000
+		verifiedOpacityAnimation.values = [0.000, 0.000] as [Float]
+		verifiedOpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		verifiedOpacityAnimation.timingFunctions = [linearTiming]
+		verifiedOpacityAnimation.beginTime = beginTime
+		verifiedOpacityAnimation.fillMode = fillMode
+		verifiedOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["verified__root"]?.layer.add(verifiedOpacityAnimation, forKey:"search_Opacity")
+
+		let verifiedImageContentsAnimation = CAKeyframeAnimation(keyPath: "contents")
+		verifiedImageContentsAnimation.duration = 2.000
+		verifiedImageContentsAnimation.values = [UIImage(named: "verified", in: Bundle(for:type(of: self)), compatibleWith: nil)!.cgImage!, UIImage(named: "verified", in: Bundle(for:type(of: self)), compatibleWith: nil)!.cgImage!] as [CGImage]
+		verifiedImageContentsAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		verifiedImageContentsAnimation.timingFunctions = [linearTiming]
+		verifiedImageContentsAnimation.beginTime = beginTime
+		verifiedImageContentsAnimation.fillMode = fillMode
+		verifiedImageContentsAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["verified"]?.layer.add(verifiedImageContentsAnimation, forKey:"search_ImageContents")
 
 		let identifying2RotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		identifying2RotationAnimation.duration = 2.000
@@ -197,9 +243,111 @@ class IdentifyView : UIView, CAAnimationDelegate {
 
 	func removeSearchAnimation() {
 		self.layer.removeAnimation(forKey: "Search")
+		self.viewsByName["verified__root"]?.layer.removeAnimation(forKey: "search_Opacity")
+		self.viewsByName["verified"]?.layer.removeAnimation(forKey: "search_ImageContents")
 		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "search_Rotation")
 		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "search_TranslationX")
 		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "search_TranslationY")
+	}
+
+	// - MARK: verified
+
+	func addVerifiedAnimation() {
+		addVerifiedAnimation(beginTime: 0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: nil)
+	}
+
+	func addVerifiedAnimation(completion: ((Bool) -> Void)?) {
+		addVerifiedAnimation(beginTime: 0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
+	}
+
+	func addVerifiedAnimation(removedOnCompletion: Bool) {
+		addVerifiedAnimation(beginTime: 0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
+	}
+
+	func addVerifiedAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+		addVerifiedAnimation(beginTime: 0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
+	}
+
+	func addVerifiedAnimation(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+		let overshootTiming = CAMediaTimingFunction(controlPoints: 0.00, 0.00, 0.58, 1.30)
+		if let complete = completion {
+			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
+			representativeAnimation.duration = 0.500
+			representativeAnimation.delegate = self
+			self.layer.add(representativeAnimation, forKey: "Verified")
+			self.animationCompletions[layer.animation(forKey: "Verified")!] = complete
+		}
+
+		let verifiedOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+		verifiedOpacityAnimation.duration = 0.500
+		verifiedOpacityAnimation.values = [0.920, 0.920] as [Float]
+		verifiedOpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		verifiedOpacityAnimation.timingFunctions = [linearTiming]
+		verifiedOpacityAnimation.beginTime = beginTime
+		verifiedOpacityAnimation.fillMode = fillMode
+		verifiedOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["verified__root"]?.layer.add(verifiedOpacityAnimation, forKey:"verified_Opacity")
+
+		let verifiedScaleXAnimation = CAKeyframeAnimation(keyPath: "transform.scale.x")
+		verifiedScaleXAnimation.duration = 0.500
+		verifiedScaleXAnimation.values = [0.385, 0.727] as [Float]
+		verifiedScaleXAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		verifiedScaleXAnimation.timingFunctions = [overshootTiming]
+		verifiedScaleXAnimation.beginTime = beginTime
+		verifiedScaleXAnimation.fillMode = fillMode
+		verifiedScaleXAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["verified__xScale"]?.layer.add(verifiedScaleXAnimation, forKey:"verified_ScaleX")
+
+		let verifiedScaleYAnimation = CAKeyframeAnimation(keyPath: "transform.scale.y")
+		verifiedScaleYAnimation.duration = 0.500
+		verifiedScaleYAnimation.values = [0.385, 0.727] as [Float]
+		verifiedScaleYAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		verifiedScaleYAnimation.timingFunctions = [overshootTiming]
+		verifiedScaleYAnimation.beginTime = beginTime
+		verifiedScaleYAnimation.fillMode = fillMode
+		verifiedScaleYAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["verified__yScale"]?.layer.add(verifiedScaleYAnimation, forKey:"verified_ScaleY")
+
+		let verifiedTranslationXAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+		verifiedTranslationXAnimation.duration = 0.500
+		verifiedTranslationXAnimation.values = [0.000, 8.338] as [Float]
+		verifiedTranslationXAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		verifiedTranslationXAnimation.timingFunctions = [overshootTiming]
+		verifiedTranslationXAnimation.beginTime = beginTime
+		verifiedTranslationXAnimation.fillMode = fillMode
+		verifiedTranslationXAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["verified__root"]?.layer.add(verifiedTranslationXAnimation, forKey:"verified_TranslationX")
+
+		let verifiedTranslationYAnimation = CAKeyframeAnimation(keyPath: "transform.translation.y")
+		verifiedTranslationYAnimation.duration = 0.500
+		verifiedTranslationYAnimation.values = [0.000, -38.338] as [Float]
+		verifiedTranslationYAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		verifiedTranslationYAnimation.timingFunctions = [overshootTiming]
+		verifiedTranslationYAnimation.beginTime = beginTime
+		verifiedTranslationYAnimation.fillMode = fillMode
+		verifiedTranslationYAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["verified__root"]?.layer.add(verifiedTranslationYAnimation, forKey:"verified_TranslationY")
+
+		let identifying2OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+		identifying2OpacityAnimation.duration = 0.500
+		identifying2OpacityAnimation.values = [0.000, 0.000] as [Float]
+		identifying2OpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		identifying2OpacityAnimation.timingFunctions = [linearTiming]
+		identifying2OpacityAnimation.beginTime = beginTime
+		identifying2OpacityAnimation.fillMode = fillMode
+		identifying2OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["identifying2__root"]?.layer.add(identifying2OpacityAnimation, forKey:"verified_Opacity")
+	}
+
+	func removeVerifiedAnimation() {
+		self.layer.removeAnimation(forKey: "Verified")
+		self.viewsByName["verified__root"]?.layer.removeAnimation(forKey: "verified_Opacity")
+		self.viewsByName["verified__xScale"]?.layer.removeAnimation(forKey: "verified_ScaleX")
+		self.viewsByName["verified__yScale"]?.layer.removeAnimation(forKey: "verified_ScaleY")
+		self.viewsByName["verified__root"]?.layer.removeAnimation(forKey: "verified_TranslationX")
+		self.viewsByName["verified__root"]?.layer.removeAnimation(forKey: "verified_TranslationY")
+		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "verified_Opacity")
 	}
 
 	// MARK: CAAnimationDelegate
@@ -214,6 +362,7 @@ class IdentifyView : UIView, CAAnimationDelegate {
 		for subview in viewsByName.values {
 			subview.layer.removeAllAnimations()
 		}
+		self.layer.removeAnimation(forKey: "Verified")
 		self.layer.removeAnimation(forKey: "Search")
 	}
 }
