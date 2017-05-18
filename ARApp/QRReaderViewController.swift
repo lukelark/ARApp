@@ -133,7 +133,9 @@ class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjects
     }
     
     func dismiss() {
-        self.dismiss(animated: false, completion: nil)
+        //self.dismiss(animated: false, completion: nil)
+        loadingView.isHidden = true
+        captureSession?.startRunning()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -146,10 +148,6 @@ class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjects
         infoView.damping = 1
         infoView.animation = "slideUp"
         infoView.animate()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
@@ -166,7 +164,7 @@ class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjects
                 delegate?.codeDidRead!(code: metadataObj.stringValue)
                 
                 loadingView.isHidden = false
-                loadingView.layer.cornerRadius = 3
+                loadingView.layer.cornerRadius = 5
                 animationView.addSearchAnimation()
                 
                 let alert = storyboard?.instantiateViewController(withIdentifier: "ViewControllerId") as! ViewController

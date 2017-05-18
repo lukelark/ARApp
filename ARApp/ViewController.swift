@@ -25,14 +25,17 @@ class ViewController: ARCameraViewController {
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var animationView: IdentifyView!
     
+    @IBOutlet weak var scanAgainButton: UIButton!
+    
     var UID: String = String()
     var userArray: [String] = []
     let defaultImageSize = 600
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scanAgainButton.isHidden = true
         loadingView.isHidden = false
-        loadingView.layer.cornerRadius = 3
+        loadingView.layer.cornerRadius = 5
         animationView.addSearchAnimation()
     }
     
@@ -53,6 +56,7 @@ class ViewController: ARCameraViewController {
                 let imageNode = ARImageNode(image: Image)
                 imageTrackable?.world.addChild(imageNode)
                 self.loadingView.isHidden = true
+                self.scanAgainButton.isHidden = false
             })
         })
     }
@@ -71,7 +75,8 @@ class ViewController: ARCameraViewController {
                 print(error!)
             } else {
                 self.animationView.addVerifiedAnimation()
-                let when = DispatchTime.now() + 0.5
+                self.loadingLabel.text = "Verifierad"
+                let when = DispatchTime.now() + 1.0
                 DispatchQueue.main.asyncAfter(deadline: when) {
                     let image = UIImage(data: data!)
                     completion(image!)
@@ -110,8 +115,13 @@ class ViewController: ARCameraViewController {
     
     @IBAction func dismissAction(_ sender: Any) {
         delegate?.dismiss!()
+        dismiss(animated: true, completion: nil)
     }
 
-
+    @IBAction func scanAgain(_ sender: Any) {
+        delegate?.dismiss!()
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
