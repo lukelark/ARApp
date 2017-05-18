@@ -11,6 +11,7 @@ import KudanAR
 import QRCode
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
 @objc protocol ViewControllerDelegate {
     @objc optional func dismiss()
@@ -20,42 +21,59 @@ class ViewController: ARCameraViewController {
 
     var delegate: ViewControllerDelegate?
 
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingLabel: UILabel!
+    @IBOutlet weak var animationView: IdentifyView!
+    
     var UID: String = String()
     var userArray: [String] = []
     let defaultImageSize = 600
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingView.isHidden = false
+        loadingView.layer.cornerRadius = 3
+        animationView.addSearchAnimation()
     }
     
     // MARK : - AR
     override func setupContent() {
         self.load(completion: { (string) -> () in
-            print("FUNKAR : SETUPCONTENT")
-            let string = string // Should be provided by QR reader.
+            let string = string
             let image = self.generateQRCode(string: string)
             
-            // Initialise image trackable
             let imageTrackable = ARImageTrackable(image: image, name: "")
             
-            // Get instance of image tracker manager
             let trackerManager = ARImageTrackerManager.getInstance()
-            trackerManager?.initialise()
+                trackerManager?.initialise()
+                trackerManager?.addTrackable(imageTrackable)
             
-            // Add image trackable to image tracker manager
-            trackerManager?.addTrackable(imageTrackable)
-            
-            // IMAGE
-            // Initialise image node
-            let imageNode = ARImageNode(bundledFile: "victor.jpg") // Should be provided by firebase
-            
-            // Add image node to image trackable
-            imageTrackable?.world.addChild(imageNode)
+            self.grabImage(completion: { (Image) -> () in
+                print("IMAGE RETURNED")
+                let imageNode = ARImageNode(image: Image)
+                imageTrackable?.world.addChild(imageNode)
+                self.loadingView.isHidden = true
+            })
         })
     }
     
     func load(completion: @escaping (String) -> ()) {
+        print("GRABBING UID")
         completion(UID)
+    }
+    
+    func grabImage(completion: @escaping (UIImage) -> ()) {
+        print("GRABBING IMAGE")
+        
+        let reference = FIRStorage.storage().reference(withPath: "\(UID).jpg")
+            reference.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+            if (error != nil) {
+                print(error!)
+            } else {
+                let image = UIImage(data: data!)
+                completion(image!)
+            }
+        }
     }
     
     func generateQRCode(string: String) -> UIImage {
@@ -84,21 +102,6 @@ class ViewController: ARCameraViewController {
         UIGraphicsEndImageContext()
         
         return newImage!
-    }
-    
-    func grabData() {
-        let ref = FIRDatabase.database().reference()
-        
-        ref.child("users").child("staff").observe(.childAdded, with: { snapshot in
-            let value = snapshot.value as? NSDictionary
-            
-            let UID = value?["uid"] as? String
-            let name = value?["name"] as? String
-            
-            let key = "\(UID!)-\(name!)"
-            
-            self.userArray.append(key)
-        })
     }
     
     @IBAction func dismissAction(_ sender: Any) {

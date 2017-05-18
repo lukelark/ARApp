@@ -23,6 +23,10 @@ class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjects
     
     var delegate: QRReaderViewControllerDelegate?
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingLabel: UILabel!
+    @IBOutlet weak var animationView: IdentifyView!
+    
     private var overlay: CAShapeLayer = {
         var overlay             = CAShapeLayer()
         overlay.backgroundColor = UIColor.clear.cgColor
@@ -160,6 +164,10 @@ class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjects
             if metadataObj.stringValue != nil {
                 captureSession?.stopRunning()
                 delegate?.codeDidRead!(code: metadataObj.stringValue)
+                
+                loadingView.isHidden = false
+                loadingView.layer.cornerRadius = 3
+                animationView.addSearchAnimation()
                 
                 let alert = storyboard?.instantiateViewController(withIdentifier: "ViewControllerId") as! ViewController
                 alert.UID = metadataObj.stringValue

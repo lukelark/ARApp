@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A5D3A5B1ECCC32F00006076 /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */; };
-		9A5D3A5D1ECCC34C00006076 /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */; };
-		9A5D3A601ECCDB7E00006076 /* collectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A5F1ECCDB7E00006076 /* collectionViewCell.swift */; };
-		9A5D3A621ECCDBA600006076 /* tableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D3A611ECCDBA600006076 /* tableViewCell.swift */; };
 		A8120A041EC8934A007EB68A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A031EC8934A007EB68A /* AppDelegate.swift */; };
 		A8120A061EC8934A007EB68A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A051EC8934A007EB68A /* ViewController.swift */; };
 		A8120A091EC8934A007EB68A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8120A071EC8934A007EB68A /* Main.storyboard */; };
@@ -19,22 +15,17 @@
 		A8120A161EC8940D007EB68A /* KudanAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A151EC8940D007EB68A /* KudanAR.framework */; };
 		A8120A191EC89458007EB68A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A8120A181EC89458007EB68A /* libc++.tbd */; };
 		A8120A1C1EC89F60007EB68A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */; };
-		A8120A1F1EC8B28A007EB68A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A1E1EC8B28A007EB68A /* MainViewController.swift */; };
 		A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A201EC8B503007EB68A /* BaseViewController.swift */; };
-		A8120A231EC8B5A8007EB68A /* AddNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */; };
-		A8AB0D2C1EC8C853008A97C2 /* ShowUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */; };
-		A8AB0D321EC8D6B1008A97C2 /* victor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A8AB0D311EC8D6B1008A97C2 /* victor.mp4 */; };
+		A850972A1ECD890500631183 /* identify.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85097281ECD890500631183 /* identify.xcassets */; };
+		A850972B1ECD890500631183 /* IdentifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85097291ECD890500631183 /* IdentifyView.swift */; };
 		A8AB0D381ECCD017008A97C2 /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AB0D371ECCD017008A97C2 /* QRReaderViewController.swift */; };
+		A8AB0D3F1ECD05EE008A97C2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AB0D3E1ECD05EE008A97C2 /* LoadingViewController.swift */; };
 		C6154CB895F20A847A9159CC /* Pods_ARApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5F9223326CA7F6CDC1DF8B11 /* Pods-ARApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.release.xcconfig"; sourceTree = "<group>"; };
 		867FFE69DFAE9ABED0D6DD11 /* Pods_ARApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewController.swift; sourceTree = "<group>"; };
-		9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
-		9A5D3A5F1ECCDB7E00006076 /* collectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionViewCell.swift; sourceTree = "<group>"; };
-		9A5D3A611ECCDBA600006076 /* tableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewCell.swift; sourceTree = "<group>"; };
 		A8120A001EC8934A007EB68A /* ARApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8120A031EC8934A007EB68A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8120A051EC8934A007EB68A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,12 +37,11 @@
 		A8120A181EC89458007EB68A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Kudan-Swift-Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A8120A1E1EC8B28A007EB68A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A8120A201EC8B503007EB68A /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewUserViewController.swift; sourceTree = "<group>"; };
-		A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowUsersViewController.swift; sourceTree = "<group>"; };
-		A8AB0D311EC8D6B1008A97C2 /* victor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = victor.mp4; sourceTree = "<group>"; };
+		A85097281ECD890500631183 /* identify.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = identify.xcassets; sourceTree = "<group>"; };
+		A85097291ECD890500631183 /* IdentifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifyView.swift; sourceTree = "<group>"; };
 		A8AB0D371ECCD017008A97C2 /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
+		A8AB0D3E1ECD05EE008A97C2 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		EBAECD875BC6D86818E81C57 /* Pods-ARApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,15 +59,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9A5D3A5E1ECCDB5E00006076 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9A5D3A5F1ECCDB7E00006076 /* collectionViewCell.swift */,
-				9A5D3A611ECCDBA600006076 /* tableViewCell.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		A81209F71EC8934A007EB68A = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +80,7 @@
 		A8120A021EC8934A007EB68A /* ARApp */ = {
 			isa = PBXGroup;
 			children = (
-				9A5D3A5E1ECCDB5E00006076 /* Extensions */,
 				A8120A1D1EC89FF7007EB68A /* Supporting files */,
-				A8AB0D3A1ECCDF34008A97C2 /* Övrigt */,
 				A8AB0D391ECCD01A008A97C2 /* AR */,
 			);
 			path = ARApp;
@@ -120,14 +99,8 @@
 		A8120A1D1EC89FF7007EB68A /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				A8120A031EC8934A007EB68A /* AppDelegate.swift */,
-				A8120A201EC8B503007EB68A /* BaseViewController.swift */,
 				A8120A1B1EC89F60007EB68A /* GoogleService-Info.plist */,
-				A8120A0F1EC8934A007EB68A /* Info.plist */,
 				A8120A0C1EC8934A007EB68A /* LaunchScreen.storyboard */,
-				A8AB0D311EC8D6B1008A97C2 /* victor.mp4 */,
-				A8120A0A1EC8934A007EB68A /* Assets.xcassets */,
-				A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -135,23 +108,35 @@
 		A8AB0D391ECCD01A008A97C2 /* AR */ = {
 			isa = PBXGroup;
 			children = (
+				A8AB0D3D1ECD054F008A97C2 /* Viktigt */,
+				A8AB0D441ECD0C3A008A97C2 /* Animate */,
+				A8120A0A1EC8934A007EB68A /* Assets.xcassets */,
 				A8120A071EC8934A007EB68A /* Main.storyboard */,
+				A8AB0D3E1ECD05EE008A97C2 /* LoadingViewController.swift */,
 				A8120A051EC8934A007EB68A /* ViewController.swift */,
 				A8AB0D371ECCD017008A97C2 /* QRReaderViewController.swift */,
 			);
 			name = AR;
 			sourceTree = "<group>";
 		};
-		A8AB0D3A1ECCDF34008A97C2 /* Övrigt */ = {
+		A8AB0D3D1ECD054F008A97C2 /* Viktigt */ = {
 			isa = PBXGroup;
 			children = (
-				A8120A1E1EC8B28A007EB68A /* MainViewController.swift */,
-				A8AB0D2B1EC8C853008A97C2 /* ShowUsersViewController.swift */,
-				A8120A221EC8B5A8007EB68A /* AddNewUserViewController.swift */,
-				9A5D3A5A1ECCC32F00006076 /* StaffViewController.swift */,
-				9A5D3A5C1ECCC34C00006076 /* PatientsViewController.swift */,
+				A8120A0F1EC8934A007EB68A /* Info.plist */,
+				A8120A031EC8934A007EB68A /* AppDelegate.swift */,
+				A8120A1A1EC894AB007EB68A /* Kudan-Swift-Example-Bridging-Header.h */,
+				A8120A201EC8B503007EB68A /* BaseViewController.swift */,
 			);
-			name = "Övrigt";
+			name = Viktigt;
+			sourceTree = "<group>";
+		};
+		A8AB0D441ECD0C3A008A97C2 /* Animate */ = {
+			isa = PBXGroup;
+			children = (
+				A85097281ECD890500631183 /* identify.xcassets */,
+				A85097291ECD890500631183 /* IdentifyView.swift */,
+			);
+			name = Animate;
 			sourceTree = "<group>";
 		};
 		AEA7F58FA6800CCCF7D66476 /* Pods */ = {
@@ -228,9 +213,9 @@
 			files = (
 				A8120A0E1EC8934A007EB68A /* LaunchScreen.storyboard in Resources */,
 				A8120A1C1EC89F60007EB68A /* GoogleService-Info.plist in Resources */,
-				A8AB0D321EC8D6B1008A97C2 /* victor.mp4 in Resources */,
 				A8120A0B1EC8934A007EB68A /* Assets.xcassets in Resources */,
 				A8120A091EC8934A007EB68A /* Main.storyboard in Resources */,
+				A850972A1ECD890500631183 /* identify.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,16 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8120A231EC8B5A8007EB68A /* AddNewUserViewController.swift in Sources */,
-				9A5D3A621ECCDBA600006076 /* tableViewCell.swift in Sources */,
-				A8120A1F1EC8B28A007EB68A /* MainViewController.swift in Sources */,
 				A8AB0D381ECCD017008A97C2 /* QRReaderViewController.swift in Sources */,
 				A8120A211EC8B503007EB68A /* BaseViewController.swift in Sources */,
+				A850972B1ECD890500631183 /* IdentifyView.swift in Sources */,
+				A8AB0D3F1ECD05EE008A97C2 /* LoadingViewController.swift in Sources */,
 				A8120A061EC8934A007EB68A /* ViewController.swift in Sources */,
-				9A5D3A5B1ECCC32F00006076 /* StaffViewController.swift in Sources */,
-				A8AB0D2C1EC8C853008A97C2 /* ShowUsersViewController.swift in Sources */,
-				9A5D3A5D1ECCC34C00006076 /* PatientsViewController.swift in Sources */,
-				9A5D3A601ECCDB7E00006076 /* collectionViewCell.swift in Sources */,
 				A8120A041EC8934A007EB68A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
