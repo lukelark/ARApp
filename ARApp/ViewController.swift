@@ -73,6 +73,15 @@ class ViewController: ARCameraViewController {
             reference.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
             if (error != nil) {
                 print(error!)
+                self.animationView.removeSearchAnimation()
+                self.animationView.addNotVerifiedAnimation()
+                self.loadingLabel.text = "Försök igen"
+                let when = DispatchTime.now() + 1.6
+                DispatchQueue.main.asyncAfter(deadline: when) {
+                    self.delegate?.dismiss!()
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
             } else {
                 self.animationView.addVerifiedAnimation()
                 self.loadingLabel.text = "Verifierad"

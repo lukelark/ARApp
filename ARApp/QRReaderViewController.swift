@@ -133,7 +133,6 @@ class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjects
     }
     
     func dismiss() {
-        //self.dismiss(animated: false, completion: nil)
         loadingView.isHidden = true
         captureSession?.startRunning()
     }
@@ -157,8 +156,8 @@ class QRReaderViewController: BaseViewController, AVCaptureMetadataOutputObjects
         }
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         if supportedBarCodes.contains(metadataObj.type) {
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
+            //let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            //qrCodeFrameView?.frame = barCodeObject!.bounds
             if metadataObj.stringValue != nil {
                 captureSession?.stopRunning()
                 delegate?.codeDidRead!(code: metadataObj.stringValue)

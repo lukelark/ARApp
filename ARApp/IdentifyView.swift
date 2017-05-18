@@ -152,7 +152,128 @@ class IdentifyView : UIView, CAAnimationDelegate {
 		viewsByName["verified__yScale"] = verified__yScale
 		viewsByName["verified"] = verified
 
+		let thumbDown__root = IdentifyPassthroughView()
+		let thumbDown__xScale = IdentifyPassthroughView()
+		let thumbDown__yScale = IdentifyPassthroughView()
+		let thumbDown = UIImageView()
+		let imgThumbDown = UIImage(named:"thumb-down.png", in: bundle, compatibleWith: nil)
+		if imgThumbDown == nil {
+			print("** Warning: Could not create image from 'thumb-down.png'")
+		}
+		thumbDown.image = imgThumbDown
+		thumbDown.contentMode = .center
+		thumbDown.bounds = CGRect(x:0, y:0, width:512.0, height:512.0)
+		thumbDown__root.layer.position = CGPoint(x:420.231, y:83.506)
+		thumbDown__xScale.transform = CGAffineTransform(scaleX: 0.54, y: 1.00)
+		thumbDown__yScale.transform = CGAffineTransform(scaleX: 1.00, y: 0.54)
+		thumbDown__root.transform = CGAffineTransform(rotationAngle: 0.497)
+		__scaling__.addSubview(thumbDown__root)
+		thumbDown__root.addSubview(thumbDown__xScale)
+		thumbDown__xScale.addSubview(thumbDown__yScale)
+		thumbDown__yScale.addSubview(thumbDown)
+		__scaling__.addSubview(thumbDown__root)
+		viewsByName["thumb-down__root"] = thumbDown__root
+		viewsByName["thumb-down__xScale"] = thumbDown__xScale
+		viewsByName["thumb-down__yScale"] = thumbDown__yScale
+		viewsByName["thumb-down"] = thumbDown
+
 		self.viewsByName = viewsByName
+	}
+
+	// - MARK: notVerified
+
+	func addNotVerifiedAnimation() {
+		addNotVerifiedAnimation(beginTime: 0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: nil)
+	}
+
+	func addNotVerifiedAnimation(completion: ((Bool) -> Void)?) {
+		addNotVerifiedAnimation(beginTime: 0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
+	}
+
+	func addNotVerifiedAnimation(removedOnCompletion: Bool) {
+		addNotVerifiedAnimation(beginTime: 0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
+	}
+
+	func addNotVerifiedAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+		addNotVerifiedAnimation(beginTime: 0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
+	}
+
+	func addNotVerifiedAnimation(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+		let easeInTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+		let easeOutTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+		if let complete = completion {
+			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
+			representativeAnimation.duration = 1.550
+			representativeAnimation.delegate = self
+			self.layer.add(representativeAnimation, forKey: "NotVerified")
+			self.animationCompletions[layer.animation(forKey: "NotVerified")!] = complete
+		}
+
+		let verifiedOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+		verifiedOpacityAnimation.duration = 1.550
+		verifiedOpacityAnimation.values = [0.000, 0.000] as [Float]
+		verifiedOpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		verifiedOpacityAnimation.timingFunctions = [linearTiming]
+		verifiedOpacityAnimation.beginTime = beginTime
+		verifiedOpacityAnimation.fillMode = fillMode
+		verifiedOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["verified__root"]?.layer.add(verifiedOpacityAnimation, forKey:"notVerified_Opacity")
+
+		let thumbDownRotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+		thumbDownRotationAnimation.duration = 1.550
+		thumbDownRotationAnimation.values = [0.497, 0.001, -0.455] as [Float]
+		thumbDownRotationAnimation.keyTimes = [0.000, 0.581, 1.000] as [NSNumber]
+		thumbDownRotationAnimation.timingFunctions = [easeInTiming, easeOutTiming]
+		thumbDownRotationAnimation.autoreverses = true
+		thumbDownRotationAnimation.repeatCount = HUGE
+		thumbDownRotationAnimation.beginTime = beginTime
+		thumbDownRotationAnimation.fillMode = fillMode
+		thumbDownRotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["thumb-down__root"]?.layer.add(thumbDownRotationAnimation, forKey:"notVerified_Rotation")
+
+		let thumbDownTranslationXAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+		thumbDownTranslationXAnimation.duration = 1.500
+		thumbDownTranslationXAnimation.values = [31.455, 21.717, 54.915] as [Float]
+		thumbDownTranslationXAnimation.keyTimes = [0.000, 0.567, 1.000] as [NSNumber]
+		thumbDownTranslationXAnimation.timingFunctions = [easeInTiming, easeOutTiming]
+		thumbDownTranslationXAnimation.autoreverses = true
+		thumbDownTranslationXAnimation.repeatCount = HUGE
+		thumbDownTranslationXAnimation.beginTime = beginTime
+		thumbDownTranslationXAnimation.fillMode = fillMode
+		thumbDownTranslationXAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["thumb-down__root"]?.layer.add(thumbDownTranslationXAnimation, forKey:"notVerified_TranslationX")
+
+		let thumbDownTranslationYAnimation = CAKeyframeAnimation(keyPath: "transform.translation.y")
+		thumbDownTranslationYAnimation.duration = 1.500
+		thumbDownTranslationYAnimation.values = [28.837, 199.078, 255.323] as [Float]
+		thumbDownTranslationYAnimation.keyTimes = [0.000, 0.567, 1.000] as [NSNumber]
+		thumbDownTranslationYAnimation.timingFunctions = [easeInTiming, easeOutTiming]
+		thumbDownTranslationYAnimation.autoreverses = true
+		thumbDownTranslationYAnimation.repeatCount = HUGE
+		thumbDownTranslationYAnimation.beginTime = beginTime
+		thumbDownTranslationYAnimation.fillMode = fillMode
+		thumbDownTranslationYAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["thumb-down__root"]?.layer.add(thumbDownTranslationYAnimation, forKey:"notVerified_TranslationY")
+
+		let identifying2OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+		identifying2OpacityAnimation.duration = 1.550
+		identifying2OpacityAnimation.values = [0.000, 0.000] as [Float]
+		identifying2OpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		identifying2OpacityAnimation.timingFunctions = [linearTiming]
+		identifying2OpacityAnimation.beginTime = beginTime
+		identifying2OpacityAnimation.fillMode = fillMode
+		identifying2OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["identifying2__root"]?.layer.add(identifying2OpacityAnimation, forKey:"notVerified_Opacity")
+	}
+
+	func removeNotVerifiedAnimation() {
+		self.layer.removeAnimation(forKey: "NotVerified")
+		self.viewsByName["verified__root"]?.layer.removeAnimation(forKey: "notVerified_Opacity")
+		self.viewsByName["thumb-down__root"]?.layer.removeAnimation(forKey: "notVerified_Rotation")
+		self.viewsByName["thumb-down__root"]?.layer.removeAnimation(forKey: "notVerified_TranslationX")
+		self.viewsByName["thumb-down__root"]?.layer.removeAnimation(forKey: "notVerified_TranslationY")
+		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "notVerified_Opacity")
 	}
 
 	// - MARK: search
@@ -194,15 +315,15 @@ class IdentifyView : UIView, CAAnimationDelegate {
 		verifiedOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
 		self.viewsByName["verified__root"]?.layer.add(verifiedOpacityAnimation, forKey:"search_Opacity")
 
-		let verifiedImageContentsAnimation = CAKeyframeAnimation(keyPath: "contents")
-		verifiedImageContentsAnimation.duration = 2.000
-		verifiedImageContentsAnimation.values = [UIImage(named: "verified", in: Bundle(for:type(of: self)), compatibleWith: nil)!.cgImage!, UIImage(named: "verified", in: Bundle(for:type(of: self)), compatibleWith: nil)!.cgImage!] as [CGImage]
-		verifiedImageContentsAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
-		verifiedImageContentsAnimation.timingFunctions = [linearTiming]
-		verifiedImageContentsAnimation.beginTime = beginTime
-		verifiedImageContentsAnimation.fillMode = fillMode
-		verifiedImageContentsAnimation.isRemovedOnCompletion = removedOnCompletion
-		self.viewsByName["verified"]?.layer.add(verifiedImageContentsAnimation, forKey:"search_ImageContents")
+		let thumbDownOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+		thumbDownOpacityAnimation.duration = 2.000
+		thumbDownOpacityAnimation.values = [0.000, 0.000] as [Float]
+		thumbDownOpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		thumbDownOpacityAnimation.timingFunctions = [linearTiming]
+		thumbDownOpacityAnimation.beginTime = beginTime
+		thumbDownOpacityAnimation.fillMode = fillMode
+		thumbDownOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["thumb-down__root"]?.layer.add(thumbDownOpacityAnimation, forKey:"search_Opacity")
 
 		let identifying2RotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		identifying2RotationAnimation.duration = 2.000
@@ -244,7 +365,7 @@ class IdentifyView : UIView, CAAnimationDelegate {
 	func removeSearchAnimation() {
 		self.layer.removeAnimation(forKey: "Search")
 		self.viewsByName["verified__root"]?.layer.removeAnimation(forKey: "search_Opacity")
-		self.viewsByName["verified"]?.layer.removeAnimation(forKey: "search_ImageContents")
+		self.viewsByName["thumb-down__root"]?.layer.removeAnimation(forKey: "search_Opacity")
 		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "search_Rotation")
 		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "search_TranslationX")
 		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "search_TranslationY")
@@ -329,6 +450,16 @@ class IdentifyView : UIView, CAAnimationDelegate {
 		verifiedTranslationYAnimation.isRemovedOnCompletion = removedOnCompletion
 		self.viewsByName["verified__root"]?.layer.add(verifiedTranslationYAnimation, forKey:"verified_TranslationY")
 
+		let thumbDownOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+		thumbDownOpacityAnimation.duration = 0.500
+		thumbDownOpacityAnimation.values = [0.000, 0.000] as [Float]
+		thumbDownOpacityAnimation.keyTimes = [0.000, 1.000] as [NSNumber]
+		thumbDownOpacityAnimation.timingFunctions = [linearTiming]
+		thumbDownOpacityAnimation.beginTime = beginTime
+		thumbDownOpacityAnimation.fillMode = fillMode
+		thumbDownOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["thumb-down__root"]?.layer.add(thumbDownOpacityAnimation, forKey:"verified_Opacity")
+
 		let identifying2OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		identifying2OpacityAnimation.duration = 0.500
 		identifying2OpacityAnimation.values = [0.000, 0.000] as [Float]
@@ -347,6 +478,7 @@ class IdentifyView : UIView, CAAnimationDelegate {
 		self.viewsByName["verified__yScale"]?.layer.removeAnimation(forKey: "verified_ScaleY")
 		self.viewsByName["verified__root"]?.layer.removeAnimation(forKey: "verified_TranslationX")
 		self.viewsByName["verified__root"]?.layer.removeAnimation(forKey: "verified_TranslationY")
+		self.viewsByName["thumb-down__root"]?.layer.removeAnimation(forKey: "verified_Opacity")
 		self.viewsByName["identifying2__root"]?.layer.removeAnimation(forKey: "verified_Opacity")
 	}
 
@@ -362,7 +494,8 @@ class IdentifyView : UIView, CAAnimationDelegate {
 		for subview in viewsByName.values {
 			subview.layer.removeAllAnimations()
 		}
-		self.layer.removeAnimation(forKey: "Verified")
 		self.layer.removeAnimation(forKey: "Search")
+		self.layer.removeAnimation(forKey: "Verified")
+		self.layer.removeAnimation(forKey: "NotVerified")
 	}
 }
